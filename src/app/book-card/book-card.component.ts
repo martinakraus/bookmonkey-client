@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Book } from "../book";
 
 @Component({
@@ -7,5 +7,11 @@ import { Book } from "../book";
   styleUrl: './book-card.component.scss'
 })
 export class BookCardComponent {
-  @Input({ required: true }) content: Book | undefined;
+  @Output() detailClick = new EventEmitter<Book>();
+  @Input({required: true}) content: Book | undefined;
+
+  handleDetailClick(click: MouseEvent) {
+    click.preventDefault();
+    this.detailClick.emit(this.content);
+  }
 }

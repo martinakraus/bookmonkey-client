@@ -12,4 +12,9 @@ export class AppComponent {
     author: 'Dale Carnegie',
     abstract: 'In this book ...'
   }
+
+  goToBookDetails(book: Book) {
+    console.log('Navigate to book details, soon...');
+    console.table(book);
+  }
 }
