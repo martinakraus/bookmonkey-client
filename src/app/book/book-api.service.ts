@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Book } from "./book";
+import { Observable, of } from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -26,7 +27,7 @@ export class BookApiService {
     }
   ]
 
-  getAll() {
-    return this.books;
+  getAll(): Observable<Book[]> {
+    return of(this.books);
   }
 }
