@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { BookComponent } from "./book.component";
 import { BookDetailComponent } from "./book-detail/book-detail.component";
+import { confirmDeactivateGuard } from "./confirm-deactivate.guard";
 
 const routes: Routes = [
   {
@@ -10,7 +11,8 @@ const routes: Routes = [
   },
   {
     path: ':isbn',
-    component: BookDetailComponent
+    component: BookDetailComponent,
+    canDeactivate: [confirmDeactivateGuard]
   },
 ];
 
