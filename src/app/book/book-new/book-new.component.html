@@ -1,0 +1,28 @@
+<h2>New</h2>
+
+<form [formGroup]="form" (ngSubmit)="submit()">
+    <label class="form-field">
+        <span>Title</span>
+        <input formControlName="title" />
+    </label>
+
+    <label class="form-field">
+        <span>Subtitle</span>
+        <input formControlName="subtitle" />
+    </label>
+
+    <label class="form-field">
+        <span>Author</span>
+        <input formControlName="author" />
+    </label>
+
+    <label class="form-field">
+
+        <span>Abstract</span>
+        <input formControlName="abstract" />
+    </label>
+
+    <div class="form-actions">
+        <button type="submit">Save</button>
+    </div>
+</form>

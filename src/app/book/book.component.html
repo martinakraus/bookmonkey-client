@@ -1,3 +1,7 @@
+<div>
+    <a routerLink="new">Create Book</a>
+</div>
+
 @if (books$ | async; as books) {
     @for (book of books; track book.isbn) {
         <app-book-card
