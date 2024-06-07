@@ -2,19 +2,18 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { BookCardComponent } from "./book-card/book-card.component";
-import { HoverHighlightDirective } from './hover-highlight.directive';
+import { BookModule } from "./book/book.module";
 
 @NgModule({
   declarations: [
-    AppComponent,
-    BookCardComponent,
-    HoverHighlightDirective
+    AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BookModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
