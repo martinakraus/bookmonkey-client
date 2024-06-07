@@ -1,4 +1,10 @@
-<app-book-card
-        [content]="book"
-        (detailClick)="goToBookDetails($event)"
-/>
+@if (books) {
+    @for (book of books; track book.isbn) {
+        <app-book-card
+                [content]="book"
+                (detailClick)="goToBookDetails($event)"
+        ></app-book-card>
+    } @empty {
+        <li> There are no items.</li>
+    }
+}
