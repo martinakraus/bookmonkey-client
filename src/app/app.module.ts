@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
 import { BookModule } from "./book/book.module";
+import { provideHttpClient } from "@angular/common/http";
 
 @NgModule({
   declarations: [
@@ -12,7 +13,7 @@ import { BookModule } from "./book/book.module";
     BrowserModule,
     BookModule
   ],
-  providers: [],
+  providers: [provideHttpClient()],
   bootstrap: [AppComponent]
 })
 export class AppModule {
