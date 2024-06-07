@@ -2,6 +2,14 @@
 
 <form [formGroup]="form" (ngSubmit)="submit()">
     <label class="form-field">
+        <span>ISBN</span>
+        <input formControlName="isbn"/>
+        @if (form.get('isbn')?.dirty && form.get('isbn')?.hasError('required')) {
+            <small>Please insert a title.</small>
+        }
+    </label>
+
+    <label class="form-field">
         <span>Title</span>
         <input formControlName="title"/>
         @if (form.get('title')?.dirty && form.get('title')?.hasError('required')) {
