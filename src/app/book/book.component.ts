@@ -1,7 +1,7 @@
-import { Component, inject, OnDestroy } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { Book } from "./book";
 import { BookApiService } from "./book-api.service";
-import { Subscription } from "rxjs";
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-book',
@@ -10,9 +10,9 @@ import { Subscription } from "rxjs";
 })
 export class BookComponent {
   books$ = inject(BookApiService).getAll();
+  router = inject(Router);
 
   goToBookDetails(book: Book) {
-    console.log('Navigate to book details, soon...');
-    console.table(book);
+    this.router.navigate(['books', book.isbn])
   }
 }
