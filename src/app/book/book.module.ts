@@ -4,6 +4,7 @@ import { BookComponent } from './book.component';
 import { BookCardComponent } from "./book-card/book-card.component";
 import { HoverHighlightDirective } from "./hover-highlight.directive";
 import { BookDetailComponent } from './book-detail/book-detail.component';
+import { BookRoutingModule } from "./book-routing.module";
 
 @NgModule({
   declarations: [
@@ -12,11 +13,9 @@ import { BookDetailComponent } from './book-detail/book-detail.component';
     HoverHighlightDirective,
     BookDetailComponent
   ],
-  exports: [
-    BookComponent
-  ],
   imports: [
-    CommonModule
+    CommonModule,
+    BookRoutingModule
   ]
 })
 
