@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder } from "@angular/forms";
+import { FormBuilder, Validators } from "@angular/forms";
 
 @Component({
   selector: 'app-book-new',
@@ -8,9 +8,9 @@ import { FormBuilder } from "@angular/forms";
 })
 export class BookNewComponent {
   form = this.formBuilder.group({
-    title: [''],
+    author: ['', [Validators.required]],
+    title: ['', [Validators.required]],
     subtitle: [''],
-    author: [''],
     abstract: ['']
   });
 

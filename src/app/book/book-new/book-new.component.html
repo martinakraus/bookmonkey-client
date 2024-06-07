@@ -3,26 +3,32 @@
 <form [formGroup]="form" (ngSubmit)="submit()">
     <label class="form-field">
         <span>Title</span>
-        <input formControlName="title" />
+        <input formControlName="title"/>
+        @if (form.get('title')?.dirty && form.get('title')?.hasError('required')) {
+            <small>Please insert a title.</small>
+        }
     </label>
 
     <label class="form-field">
         <span>Subtitle</span>
-        <input formControlName="subtitle" />
+        <input formControlName="subtitle"/>
     </label>
 
     <label class="form-field">
         <span>Author</span>
-        <input formControlName="author" />
+        <input formControlName="author"/>
+        @if (form.get('author')?.dirty && form.get('author')?.hasError('required')) {
+            <small>Please insert a Author.</small>
+        }
     </label>
 
     <label class="form-field">
 
         <span>Abstract</span>
-        <input formControlName="abstract" />
+        <input formControlName="abstract"/>
     </label>
 
     <div class="form-actions">
-        <button type="submit">Save</button>
+        <button [disabled]="form.invalid" type="submit">Save</button>
     </div>
 </form>
