@@ -9,6 +9,7 @@ import { Book } from "../book";
 export class BookCardComponent {
   @Output() detailClick = new EventEmitter<Book>();
   @Input({required: true}) content: Book | undefined;
+  publishDate = new Date();
 
   handleDetailClick(click: MouseEvent) {
     click.preventDefault();

@@ -1,4 +1,5 @@
 <h3>{{ content?.title ?? 'n/a' }}</h3>
 <h4> {{ content?.author ?? 'n/a' }}</h4>
+<h5>{{ publishDate | date:'longDate' }}</h5>
 <a href="" (click)="handleDetailClick($event)">Details</a>
 <p>{{ content?.abstract ?? 'n/a' }}</p>
