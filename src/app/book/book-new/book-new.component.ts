@@ -4,6 +4,7 @@ import { BookApiService } from "../book-api.service";
 import { take } from "rxjs";
 import { Book } from "../book";
 import { Router } from "@angular/router";
+import { validAuthorName } from "../author.validator";
 
 @Component({
   selector: 'app-book-new',
@@ -15,7 +16,7 @@ export class BookNewComponent {
     isbn: ['', [Validators.required]],
     title: ['', [Validators.required]],
     subtitle: [''],
-    author: ['', [Validators.required]],
+    author: ['', [Validators.required, validAuthorName()]],
     abstract: [''],
   });
 

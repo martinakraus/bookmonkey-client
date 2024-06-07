@@ -28,6 +28,9 @@
         @if (form.get('author')?.dirty && form.get('author')?.hasError('required')) {
             <small>Please insert a Author.</small>
         }
+        @if (form.get('author')?.dirty && form.get('author')?.hasError('invalidAuthor')) {
+            <small>The name of an author must not contain any numbers! </small>
+        }
     </label>
 
     <label class="form-field">
