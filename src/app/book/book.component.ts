@@ -1,4 +1,4 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, inject, OnDestroy } from '@angular/core';
 import { Book } from "./book";
 import { BookApiService } from "./book-api.service";
 import { Subscription } from "rxjs";
@@ -8,20 +8,11 @@ import { Subscription } from "rxjs";
   templateUrl: './book.component.html',
   styleUrl: './book.component.scss'
 })
-export class BookComponent implements OnDestroy {
-  books: Book[] | undefined;
-  subscription: Subscription;
-
-  constructor(private readonly bookApiService: BookApiService) {
-    this.subscription = bookApiService.getAll().subscribe(books => this.books = books);
-  }
+export class BookComponent {
+  books$ = inject(BookApiService).getAll();
 
   goToBookDetails(book: Book) {
     console.log('Navigate to book details, soon...');
     console.table(book);
-  }
-
-  ngOnDestroy() {
-    this.subscription?.unsubscribe();
   }
 }
