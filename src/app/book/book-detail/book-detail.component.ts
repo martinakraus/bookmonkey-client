@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { Component, inject, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 import { BookApiService } from "../book-api.service";
 import { Observable, switchMap } from "rxjs";
@@ -10,13 +10,12 @@ import { Book } from "../book";
   styleUrl: './book-detail.component.scss'
 })
 export class BookDetailComponent implements OnInit {
-  route = inject(ActivatedRoute);
+  @Input() isbn = '';
+
   bookApiService = inject(BookApiService);
   book$!: Observable<Book>;
 
   ngOnInit() {
-    this.book$ = this.route.params.pipe(
-      switchMap(params => this.bookApiService.getByIsbn(params?.['isbn']))
-    );
+    this.book$ = this.bookApiService.getByIsbn(this.isbn);
   }
 }
